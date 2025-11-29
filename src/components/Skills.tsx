@@ -30,7 +30,7 @@ const Skills = () => {
   ];
 
   return (
-    <section className="py-32 px-6 lg:px-12 bg-secondary/30">
+    <section className="h-full py-20 px-6 lg:px-12 bg-secondary/30 dark:bg-secondary/10 overflow-y-auto">
       <div className="max-w-6xl mx-auto">
         <div className="mb-20 animate-fade-in-up">
           <h2 className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">

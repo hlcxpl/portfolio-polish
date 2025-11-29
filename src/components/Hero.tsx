@@ -3,16 +3,16 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import SubtleParticles from "./SubtleParticles";
 import profileImage from "@/assets/profile-professional.jpg";
 
-const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
+interface HeroProps {
+  onNavigate: (section: string) => void;
+}
+
+const Hero = ({ onNavigate }: HeroProps) => {
 
   return (
-    <section className="relative min-h-screen flex">
+    <section className="relative h-full flex">
       {/* Left side - Dark background with image and particles */}
-      <div className="w-full lg:w-1/2 bg-[#1a1a1a] relative flex items-center justify-center">
+      <div className="w-full lg:w-1/2 bg-[#1a1a1a] dark:bg-[#0a0a0a] relative flex items-center justify-center">
         <SubtleParticles />
         <div className="relative z-10 p-12">
           <img 
@@ -74,7 +74,7 @@ const Hero = () => {
           <Button 
             size="lg" 
             className="bg-foreground text-background hover:bg-foreground/90 text-base px-10 py-6 rounded-none font-medium tracking-wide"
-            onClick={() => scrollToSection("contact")}
+            onClick={() => onNavigate("contact")}
           >
             Contactar
           </Button>
