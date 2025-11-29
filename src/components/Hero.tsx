@@ -31,7 +31,7 @@ const Hero = () => {
             Desarrollador Fullstack JavaScript
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-            Ingeniero en Computación con 5+ años de experiencia construyendo aplicaciones web modernas.
+            Ingeniero en Computación con 7+ años de experiencia construyendo aplicaciones web modernas.
             Especializado en React, Node.js y arquitecturas escalables.
           </p>
 
