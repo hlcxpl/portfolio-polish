@@ -38,7 +38,7 @@ const About = () => {
               <img 
                 src={profileImage}
                 alt="Luis Omar Sánchez - Desarrollador Fullstack"
-                className="relative rounded-2xl shadow-2xl w-full aspect-square object-cover"
+                className="relative rounded-2xl shadow-2xl w-full aspect-square object-contain bg-gradient-to-br from-background/50 to-background/30 p-4"
               />
             </div>
           </div>
