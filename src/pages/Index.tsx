@@ -30,6 +30,9 @@ const Index = () => {
 
       const currentIndex = sectionOrder.indexOf(currentSection);
       
+      // More sensitive scrolling - lower threshold
+      if (Math.abs(e.deltaY) < 10) return;
+      
       if (e.deltaY > 0 && currentIndex < sectionOrder.length - 1) {
         // Scroll down
         setIsScrolling(true);
@@ -46,7 +49,7 @@ const Index = () => {
 
       scrollTimeoutRef.current = setTimeout(() => {
         setIsScrolling(false);
-      }, 1000);
+      }, 800);
     };
 
     window.addEventListener('wheel', handleWheel, { passive: false });
@@ -69,11 +72,11 @@ const Index = () => {
       if ((e.key === 'ArrowDown' || e.key === 'ArrowRight') && currentIndex < sectionOrder.length - 1) {
         setIsScrolling(true);
         setCurrentSection(sectionOrder[currentIndex + 1]);
-        setTimeout(() => setIsScrolling(false), 1000);
+        setTimeout(() => setIsScrolling(false), 800);
       } else if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && currentIndex > 0) {
         setIsScrolling(true);
         setCurrentSection(sectionOrder[currentIndex - 1]);
-        setTimeout(() => setIsScrolling(false), 1000);
+        setTimeout(() => setIsScrolling(false), 800);
       }
     };
 
