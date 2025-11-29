@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Code2, Rocket, Users } from "lucide-react";
 import profileImage from "@/assets/profile-professional.jpg";
+import MouseRepelEffect from "./MouseRepelEffect";
 
 const About = () => {
   const highlights = [
@@ -22,8 +23,9 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 px-4 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-24 px-4 relative overflow-hidden">
+      <MouseRepelEffect />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             Sobre Mí

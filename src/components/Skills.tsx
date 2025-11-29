@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Code2, Database, Cloud, Wrench } from "lucide-react";
+import RippleEffect from "./RippleEffect";
 
 const Skills = () => {
   const skillCategories = [
@@ -31,8 +32,9 @@ const Skills = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-secondary/50">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-24 px-4 bg-secondary/50 relative overflow-hidden">
+      <RippleEffect />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             Habilidades Técnicas

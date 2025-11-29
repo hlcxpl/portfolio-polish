@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import MagneticEffect from "./MagneticEffect";
 
 const Projects = () => {
   const projects = [
@@ -79,8 +80,9 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="py-24 px-4 relative overflow-hidden">
+      <MagneticEffect />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             Proyectos Destacados

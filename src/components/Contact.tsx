@@ -6,6 +6,7 @@ import { Mail, MapPin, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
+import GravityEffect from "./GravityEffect";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -77,8 +78,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 px-4 bg-secondary/30">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-24 px-4 bg-secondary/30 relative overflow-hidden">
+      <GravityEffect />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             Contacto
