@@ -45,20 +45,27 @@ const About = () => {
 
           <div className="space-y-6 animate-fade-in">
             <h3 className="text-3xl font-bold text-foreground">
-              Ingeniero en Computación
+              Full Stack Developer | DevOps | Data Scientist
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Egresado de la Universidad Dr. Rafael Belloso Chacín (2017). Actualmente en Santiago, Chile.
+              Ingeniero en Computación egresado de la Universidad Dr. Rafael Belloso Chacín (2012-2017). 
+              Actualmente en Santiago, Chile.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Con más de 5 años de experiencia en el desarrollo web, me especializo en tecnologías 
-              JavaScript modernas, trabajando tanto en frontend como backend. He liderado equipos 
-              y proyectos, destacándome por mi capacidad de resolver problemas complejos y mi 
-              compromiso con la excelencia técnica.
+              Desarrollador Full Stack con experiencia en la optimización de procesos en la industria minera, 
+              incorporando tecnologías innovadoras para mejorar la eficiencia operativa. Especialista en 
+              soluciones bancarias digitales, con habilidad para implementar sistemas seguros y escalables 
+              que mejoran la satisfacción del usuario y la gestión de datos.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Actualmente busco nuevos desafíos profesionales que me permitan seguir creciendo 
-              y aportando valor en el desarrollo de soluciones tecnológicas innovadoras.
+              Con más de 7 años de experiencia profesional, he trabajado en proyectos de alto impacto 
+              utilizando tecnologías como React, Node.js, Java, Python, Apache Kafka, y plataformas cloud 
+              como Azure. Mi enfoque está en crear soluciones robustas, escalables y orientadas al usuario.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Certificado en FullStack JavaScript y Python, Científico de Datos, Backend Java, y DevOps. 
+              Actualmente busco nuevos desafíos profesionales que me permitan seguir innovando y aportando 
+              valor en el desarrollo de soluciones tecnológicas de vanguardia.
             </p>
           </div>
         </div>

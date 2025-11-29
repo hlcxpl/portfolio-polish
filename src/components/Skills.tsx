@@ -8,25 +8,37 @@ const Skills = () => {
       icon: Code2,
       title: "Frontend",
       color: "from-primary to-accent",
-      skills: ["HTML5", "CSS3", "JavaScript", "React", "Sass", "WordPress", "Elementor"]
+      skills: ["React", "JavaScript", "TypeScript", "HTML5", "CSS3", "Dash (Plotly)", "WordPress", "Elementor"]
     },
     {
       icon: Database,
-      title: "Backend & Databases",
+      title: "Backend & Frameworks",
       color: "from-accent to-primary",
-      skills: ["Node.js", "Java", "Python", "MySQL", "PostgreSQL"]
+      skills: ["Node.js", "Java", "Spring Boot", "Python", "Django", "Flask", "Express.js", "Laravel"]
+    },
+    {
+      icon: Database,
+      title: "Bases de Datos & Cloud",
+      color: "from-primary to-accent",
+      skills: ["PostgreSQL", "MySQL", "SQL Server", "Prisma", "Azure", "Azure Data Lake", "Azure Functions"]
     },
     {
       icon: Wrench,
-      title: "Herramientas",
-      color: "from-primary/80 to-accent/80",
-      skills: ["GitHub", "Git", "VS Code", "npm"]
+      title: "DevOps & Herramientas",
+      color: "from-accent to-primary",
+      skills: ["Docker", "Kubernetes", "ArgoCD", "GitHub Actions", "PM2", "Git", "Apache Kafka", "Elasticsearch", "Kibana", "Logstash"]
     },
     {
       icon: Cpu,
-      title: "Electrónica",
+      title: "IA & Data Science",
+      color: "from-primary/80 to-accent/80",
+      skills: ["OpenAI API", "IBM Watson", "Rasa NLU", "Pandas", "Data Analysis", "Machine Learning"]
+    },
+    {
+      icon: Cpu,
+      title: "Otros",
       color: "from-accent/80 to-primary/80",
-      skills: ["MATLAB", "C++", "PICs", "Circuitos Integrados", "Robótica"]
+      skills: ["REST APIs", "IoT", "Telemetría", "Agile (Scrum)", "GitOps", "CI/CD"]
     }
   ];
 
@@ -43,7 +55,7 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             return (
@@ -80,10 +92,10 @@ const Skills = () => {
         <div className="mt-16 text-center">
           <Card className="p-8 bg-gradient-to-r from-card to-secondary border-primary/30 inline-block animate-fade-in">
             <p className="text-lg text-muted-foreground mb-4">
-              <span className="font-bold gradient-text text-xl">5+ años</span> de experiencia profesional
+              <span className="font-bold gradient-text text-xl">7+ años</span> de experiencia profesional
             </p>
             <p className="text-muted-foreground">
-              Desarrollando soluciones web innovadoras y escalables
+              Desarrollando soluciones fullstack, DevOps y data science en industrias minera, bancaria y tecnológica
             </p>
           </Card>
         </div>

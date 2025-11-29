@@ -27,8 +27,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "contact@luisomar.dev",
-      href: "mailto:contact@luisomar.dev"
+      value: "hlcxpl@gmail.com",
+      href: "mailto:hlcxpl@gmail.com"
     },
     {
       icon: MapPin,
@@ -45,8 +45,8 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "LinkedIn Profile",
-      href: "https://linkedin.com"
+      value: "Luis Omar Sánchez Díaz",
+      href: "https://www.linkedin.com/in/luisomarsanchezdiaz/"
     }
   ];
 
