@@ -1,4 +1,5 @@
 import { Code2, Database, Cloud, Wrench } from "lucide-react";
+import BackgroundParticles from "./BackgroundParticles";
 
 const Skills = () => {
   const skillCategories = [
@@ -30,8 +31,9 @@ const Skills = () => {
   ];
 
   return (
-    <section className="h-full py-20 px-6 lg:px-12 bg-secondary/30 dark:bg-secondary/10 overflow-y-auto">
-      <div className="max-w-6xl mx-auto">
+    <section className="h-full py-20 px-6 lg:px-12 bg-secondary/30 dark:bg-secondary/10 overflow-y-auto relative">
+      <BackgroundParticles />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-20 animate-fade-in-up">
           <h2 className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
             Habilidades

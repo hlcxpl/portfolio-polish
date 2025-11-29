@@ -5,6 +5,7 @@ import { Mail, MapPin, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
+import BackgroundParticles from "./BackgroundParticles";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -76,8 +77,9 @@ const Contact = () => {
   ];
 
   return (
-    <section className="h-full py-20 px-6 lg:px-12 bg-secondary/30 dark:bg-secondary/10 overflow-y-auto">
-      <div className="max-w-6xl mx-auto pb-32">
+    <section className="h-full py-20 px-6 lg:px-12 bg-secondary/30 dark:bg-secondary/10 overflow-y-auto relative">
+      <BackgroundParticles />
+      <div className="max-w-6xl mx-auto pb-32 relative z-10">
         <div className="mb-20 animate-fade-in-up">
           <h2 className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
             Contacto

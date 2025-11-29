@@ -1,4 +1,5 @@
 import { Code2, Rocket, Users } from "lucide-react";
+import BackgroundParticles from "./BackgroundParticles";
 
 const About = () => {
   const highlights = [
@@ -20,8 +21,9 @@ const About = () => {
   ];
 
   return (
-    <section className="h-full py-20 px-6 lg:px-12 overflow-y-auto">
-      <div className="max-w-6xl mx-auto">
+    <section className="h-full py-20 px-6 lg:px-12 overflow-y-auto relative">
+      <BackgroundParticles />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-20 animate-fade-in-up">
           <h2 className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
             Sobre Mí
