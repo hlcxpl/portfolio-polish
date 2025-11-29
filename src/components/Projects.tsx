@@ -5,22 +5,52 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "Aplicación Web Fullstack",
-      description: "Desarrollo de aplicación web completa con React y Node.js, incluyendo autenticación, gestión de usuarios y panel administrativo.",
-      tags: ["React", "Node.js", "PostgreSQL", "Express"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop"
+      title: "ELK Stack Template",
+      description: "Template completo de Elasticsearch, Logstash y Kibana para monitoreo y análisis de logs en tiempo real. Incluye configuración Docker y scripts automatizados.",
+      tags: ["ELK", "Docker", "Shell", "DevOps"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+      github: "https://github.com/hlcxpl/elk-template",
+      demo: null
     },
     {
-      title: "Sistema de Gestión",
-      description: "Sistema empresarial para gestión de inventario y ventas con dashboard interactivo y reportes en tiempo real.",
-      tags: ["JavaScript", "MySQL", "REST API"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop"
+      title: "Django Auto Motor App",
+      description: "Aplicación web Django para gestión de inventario automotriz. Sistema completo de administración con panel de control y reportes.",
+      tags: ["Python", "Django", "PostgreSQL", "API REST"],
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=500&fit=crop",
+      github: "https://github.com/hlcxpl/django-auto-motor-app",
+      demo: null
     },
     {
-      title: "Sitio WordPress Custom",
-      description: "Desarrollo de tema personalizado para WordPress con Elementor, optimizado para SEO y rendimiento.",
-      tags: ["WordPress", "Elementor", "PHP", "CSS"],
-      image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=500&fit=crop"
+      title: "CI/CD Express + OpenAI",
+      description: "Pipeline CI/CD para aplicación Express.js integrada con OpenAI. Automatización completa de pruebas, builds y deployment.",
+      tags: ["JavaScript", "Express", "OpenAI", "CI/CD"],
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+      github: "https://github.com/hlcxpl/cicd-express-openai",
+      demo: null
+    },
+    {
+      title: "DevOps Mastering Portfolio",
+      description: "Portafolio de proyectos DevOps incluyendo infraestructura como código, Kubernetes, Docker y pipelines automatizados.",
+      tags: ["DevOps", "Kubernetes", "Docker", "IaC"],
+      image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=500&fit=crop",
+      github: "https://github.com/hlcxpl/mastering_devops_g1",
+      demo: null
+    },
+    {
+      title: "ArgoCD Example Apps",
+      description: "Aplicaciones de ejemplo para demostrar GitOps con ArgoCD. Implementación de continuous deployment en Kubernetes.",
+      tags: ["ArgoCD", "Kubernetes", "GitOps", "Jsonnet"],
+      image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=500&fit=crop",
+      github: "https://github.com/hlcxpl/argocd-example-apps",
+      demo: null
+    },
+    {
+      title: "TeleFruver FruitFlow",
+      description: "Sistema de gestión y logística para distribución de frutas. Frontend desarrollado en TypeScript con arquitectura escalable.",
+      tags: ["TypeScript", "React", "Node.js", "Logistics"],
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=500&fit=crop",
+      github: "https://github.com/hlcxpl/telefruver-fruitflow",
+      demo: null
     }
   ];
 
@@ -73,21 +103,37 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <Button 
-                    size="sm" 
-                    variant="outline"
-                    className="border-primary/50 hover:bg-primary/10 flex-1"
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    Código
-                  </Button>
-                  <Button 
-                    size="sm"
-                    className="gradient-bg hover:opacity-90 flex-1"
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Ver
-                  </Button>
+                  {project.github && (
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      className="border-primary/50 hover:bg-primary/10 flex-1"
+                      onClick={() => window.open(project.github, '_blank')}
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      Código
+                    </Button>
+                  )}
+                  {project.demo && (
+                    <Button 
+                      size="sm"
+                      className="gradient-bg hover:opacity-90 flex-1"
+                      onClick={() => window.open(project.demo, '_blank')}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Ver
+                    </Button>
+                  )}
+                  {!project.demo && project.github && (
+                    <Button 
+                      size="sm"
+                      className="gradient-bg hover:opacity-90 flex-1"
+                      onClick={() => window.open(project.github, '_blank')}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Ver Repo
+                    </Button>
+                  )}
                 </div>
               </div>
             </Card>

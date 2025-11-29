@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Code2, Rocket, Users } from "lucide-react";
+import profileImage from "@/assets/profile.jpg";
 
 const About = () => {
   const highlights = [
@@ -35,8 +36,8 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-2xl blur-xl opacity-50"></div>
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=800&fit=crop"
-                alt="Luis Omar Sánchez"
+                src={profileImage}
+                alt="Luis Omar Sánchez - Desarrollador Fullstack"
                 className="relative rounded-2xl shadow-2xl w-full aspect-square object-cover"
               />
             </div>

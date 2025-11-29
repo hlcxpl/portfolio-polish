@@ -62,7 +62,7 @@ const Hero = () => {
               <Github className="h-7 w-7" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/luisomarsanchezdiaz/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110 duration-300"
