@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-bold gradient-text mb-4 font-mono">
-              &lt;LOS /&gt;
+              LOSD
             </h3>
             <p className="text-muted-foreground">
               Desarrollador Fullstack apasionado por crear experiencias web excepcionales.

@@ -42,7 +42,7 @@ const Navigation = () => {
             onClick={() => scrollToSection("hero")}
             className="text-xl md:text-2xl font-bold gradient-text font-mono cursor-pointer"
           >
-            &lt;LOS /&gt;
+            LOSD
           </button>
 
           {/* Desktop Navigation */}
