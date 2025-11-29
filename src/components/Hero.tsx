@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
-import ParticlesBackground from "./ParticlesBackground";
+import SubtleParticles from "./SubtleParticles";
+import profileImage from "@/assets/profile-professional.jpg";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -9,84 +10,80 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary to-background">
-        <ParticlesBackground />
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/30 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }}></div>
-        </div>
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      <SubtleParticles />
+      
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left side - Image */}
+          <div className="order-2 lg:order-1 animate-fade-in">
+            <div className="relative">
+              <img 
+                src={profileImage}
+                alt="Luis Omar Sánchez"
+                className="w-full max-w-lg mx-auto grayscale hover:grayscale-0 transition-all duration-700"
+              />
+            </div>
+          </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
-        <div className="animate-fade-in-up">
-          <h2 className="text-xl md:text-2xl text-primary font-mono mb-4 animate-slide-in-right">
-            Hola, soy
-          </h2>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 gradient-text">
-            Luis Omar Sánchez
-          </h1>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground/90 mb-8">
-            Desarrollador Fullstack JavaScript
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-            Ingeniero en Computación con 7+ años de experiencia construyendo aplicaciones web modernas.
-            Especializado en React, Node.js y arquitecturas escalables.
-          </p>
-
-          <div className="flex flex-wrap gap-4 justify-center mb-12">
+          {/* Right side - Content */}
+          <div className="order-1 lg:order-2 animate-fade-in-up">
+            <h2 className="text-lg md:text-xl text-muted-foreground mb-6 tracking-wider">
+              Hola, soy
+            </h2>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-6 leading-tight">
+              LUIS OMAR
+              <br />
+              SÁNCHEZ
+            </h1>
+            <div className="mb-8">
+              <span className="text-xl md:text-2xl text-muted-foreground">
+                Desarrollador <span className="font-display font-semibold text-foreground">Fullstack</span>
+              </span>
+            </div>
+            
             <Button 
               size="lg" 
-              className="gradient-bg hover:opacity-90 transition-opacity glow-effect text-lg px-8"
+              className="bg-foreground text-background hover:bg-foreground/90 text-lg px-12 py-6 rounded-none font-medium tracking-wide"
               onClick={() => scrollToSection("contact")}
             >
-              <Mail className="mr-2 h-5 w-5" />
               Contactar
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-primary/50 text-foreground hover:bg-primary/10 text-lg px-8"
-              onClick={() => scrollToSection("projects")}
-            >
-              Ver Proyectos
-            </Button>
-          </div>
 
-          <div className="flex gap-6 justify-center">
-            <a 
-              href="https://github.com/hlcxpl" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110 duration-300"
-            >
-              <Github className="h-7 w-7" />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/luisomarsanchezdiaz/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110 duration-300"
-            >
-              <Linkedin className="h-7 w-7" />
-            </a>
-            <a 
-              href="mailto:contact@luisomar.dev"
-              className="text-muted-foreground hover:text-primary transition-colors transform hover:scale-110 duration-300"
-            >
-              <Mail className="h-7 w-7" />
-            </a>
+            <div className="flex gap-6 mt-12">
+              <a 
+                href="https://github.com/hlcxpl" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Github className="h-6 w-6" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/luisomarsanchezdiaz/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Linkedin className="h-6 w-6" />
+              </a>
+              <a 
+                href="mailto:hlcxpl@gmail.com"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Mail className="h-6 w-6" />
+              </a>
+            </div>
           </div>
         </div>
-
-        <button 
-          onClick={() => scrollToSection("about")}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-primary animate-bounce cursor-pointer"
-        >
-          <ArrowDown className="h-8 w-8" />
-        </button>
       </div>
+
+      <button 
+        onClick={() => scrollToSection("about")}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-foreground animate-bounce cursor-pointer"
+      >
+        <ArrowDown className="h-6 w-6" />
+      </button>
     </section>
   );
 };

@@ -1,7 +1,5 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-import MagneticEffect from "./MagneticEffect";
 
 const Projects = () => {
   const projects = [
@@ -80,37 +78,34 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-4 relative overflow-hidden">
-      <MagneticEffect />
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            Proyectos Destacados
+    <section id="projects" className="py-32 px-6 lg:px-12">
+      <div className="max-w-6xl mx-auto">
+        <div className="mb-20 animate-fade-in-up">
+          <h2 className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
+            Proyectos
           </h2>
-          <div className="w-24 h-1 gradient-bg mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Algunos de los proyectos en los que he trabajado
-          </p>
+          <div className="w-16 h-[2px] bg-foreground mb-8"></div>
+          <h3 className="text-4xl md:text-5xl font-display font-bold">
+            Trabajos Destacados
+          </h3>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card 
+            <div 
               key={index}
-              className="overflow-hidden bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-fade-in-up group"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              className="group border border-border hover:border-foreground transition-all duration-300"
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden aspect-[4/3]">
                 <img 
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-display font-bold mb-3 text-foreground">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
@@ -118,10 +113,10 @@ const Projects = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, tagIndex) => (
+                  {project.tags.slice(0, 3).map((tag, tagIndex) => (
                     <span 
                       key={tagIndex}
-                      className="px-3 py-1 bg-secondary/50 text-primary text-xs font-medium rounded-full border border-border"
+                      className="text-xs text-muted-foreground tracking-wider"
                     >
                       {tag}
                     </span>
@@ -133,7 +128,7 @@ const Projects = () => {
                     <Button 
                       size="sm" 
                       variant="outline"
-                      className="border-primary/50 hover:bg-primary/10 flex-1"
+                      className="border-foreground hover:bg-foreground hover:text-background rounded-none"
                       onClick={() => window.open(project.github, '_blank')}
                     >
                       <Github className="h-4 w-4 mr-2" />
@@ -143,26 +138,16 @@ const Projects = () => {
                   {project.demo && (
                     <Button 
                       size="sm"
-                      className="gradient-bg hover:opacity-90 flex-1"
+                      className="bg-foreground text-background hover:bg-foreground/90 rounded-none"
                       onClick={() => window.open(project.demo, '_blank')}
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Ver
                     </Button>
                   )}
-                  {!project.demo && project.github && (
-                    <Button 
-                      size="sm"
-                      className="gradient-bg hover:opacity-90 flex-1"
-                      onClick={() => window.open(project.github, '_blank')}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Ver Repo
-                    </Button>
-                  )}
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
