@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -13,14 +14,39 @@ const Contact = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Mensaje enviado",
-      description: "Gracias por contactarme. Te responderé pronto.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        'service_2e2iw4n',
+        'template_cxzr25i',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'WTaD6tGe4oGf6sepp'
+      );
+
+      toast({
+        title: "Mensaje enviado",
+        description: "Gracias por contactarme. Te responderé pronto.",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error al enviar",
+        description: "Hubo un problema al enviar el mensaje. Por favor, intenta de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -157,9 +183,10 @@ const Contact = () => {
               <Button 
                 type="submit" 
                 className="w-full gradient-bg hover:opacity-90 transition-opacity glow-effect text-lg py-6"
+                disabled={isSubmitting}
               >
                 <Mail className="mr-2 h-5 w-5" />
-                Enviar Mensaje
+                {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
               </Button>
             </form>
           </Card>
