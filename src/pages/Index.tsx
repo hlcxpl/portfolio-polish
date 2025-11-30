@@ -47,12 +47,16 @@ const Index = () => {
     const container = e.currentTarget;
     const { scrollTop, scrollHeight, clientHeight } = container;
 
-    const atTop = scrollTop === 0;
-    const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
+    // Detección más estricta de límites (1 pixel de tolerancia)
+    const atTop = scrollTop <= 1;
+    const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) <= 1;
     
-    // Habilitar navegación si llegamos a un límite
+    // Habilitar navegación SOLO si estamos exactamente en un límite
     if (atTop || atBottom) {
       setCanNavigate(true);
+    } else {
+      // Si nos alejamos del límite, bloquear navegación
+      setCanNavigate(false);
     }
     
     // Si no estamos en los límites, dejar que haga scroll normal
@@ -92,12 +96,15 @@ const Index = () => {
     const container = e.currentTarget;
     const { scrollTop, scrollHeight, clientHeight } = container;
 
-    const atTop = scrollTop === 0;
-    const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
+    // Detección más estricta de límites (1 pixel de tolerancia)
+    const atTop = scrollTop <= 1;
+    const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) <= 1;
     
-    // Habilitar navegación si llegamos a un límite
+    // Habilitar navegación SOLO si estamos exactamente en un límite
     if (atTop || atBottom) {
       setCanNavigate(true);
+    } else {
+      setCanNavigate(false);
     }
     
     // Si no estamos en los límites, no cambiar de sección
