@@ -79,20 +79,20 @@ const Projects = () => {
   ];
 
   return (
-    <section className="h-full py-20 px-6 lg:px-12 overflow-y-auto relative">
+    <section className="h-full py-12 md:py-20 px-4 md:px-6 lg:px-12 overflow-y-auto relative">
       <BackgroundParticles />
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-20 animate-fade-in-up">
-          <h2 className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
+        <div className="mb-12 md:mb-20 animate-fade-in-up">
+          <h2 className="text-xs md:text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
             Proyectos
           </h2>
-          <div className="w-16 h-[2px] bg-foreground mb-8"></div>
-          <h3 className="text-4xl md:text-5xl font-display font-bold">
+          <div className="w-12 md:w-16 h-[2px] bg-foreground mb-6 md:mb-8"></div>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold">
             Trabajos Destacados
           </h3>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <div 
               key={index}
@@ -106,15 +106,15 @@ const Projects = () => {
                 />
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-display font-bold mb-3 text-foreground">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-display font-bold mb-2 md:mb-3 text-foreground">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                <p className="text-muted-foreground mb-3 md:mb-4 text-xs md:text-sm leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                   {project.tags.slice(0, 3).map((tag, tagIndex) => (
                     <span 
                       key={tagIndex}
@@ -125,25 +125,25 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-2 md:gap-3">
                   {project.github && (
                     <Button 
                       size="sm" 
                       variant="outline"
-                      className="border-foreground hover:bg-foreground hover:text-background rounded-none"
+                      className="border-foreground hover:bg-foreground hover:text-background rounded-none text-xs md:text-sm"
                       onClick={() => window.open(project.github, '_blank')}
                     >
-                      <Github className="h-4 w-4 mr-2" />
+                      <Github className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                       Código
                     </Button>
                   )}
                   {project.demo && (
                     <Button 
                       size="sm"
-                      className="bg-foreground text-background hover:bg-foreground/90 rounded-none"
+                      className="bg-foreground text-background hover:bg-foreground/90 rounded-none text-xs md:text-sm"
                       onClick={() => window.open(project.demo, '_blank')}
                     >
-                      <ExternalLink className="h-4 w-4 mr-2" />
+                      <ExternalLink className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
                       Ver
                     </Button>
                   )}

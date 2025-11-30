@@ -21,20 +21,20 @@ const About = () => {
   ];
 
   return (
-    <section className="h-full py-20 px-6 lg:px-12 overflow-y-auto relative">
+    <section className="h-full py-12 md:py-20 px-4 md:px-6 lg:px-12 overflow-y-auto relative">
       <BackgroundParticles />
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-20 animate-fade-in-up">
-          <h2 className="text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
+        <div className="mb-12 md:mb-20 animate-fade-in-up">
+          <h2 className="text-xs md:text-sm tracking-[0.3em] text-muted-foreground uppercase mb-4">
             Sobre Mí
           </h2>
-          <div className="w-16 h-[2px] bg-foreground mb-8"></div>
-          <h3 className="text-4xl md:text-5xl font-display font-bold mb-8">
+          <div className="w-12 md:w-16 h-[2px] bg-foreground mb-6 md:mb-8"></div>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 md:mb-8">
             Full Stack Developer | DevOps | Data Scientist
           </h3>
         </div>
 
-        <div className="space-y-6 text-lg text-muted-foreground leading-relaxed max-w-4xl mb-20">
+        <div className="space-y-5 md:space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl mb-12 md:mb-20">
           <p>
             Ingeniero en Computación egresado de la Universidad Dr. Rafael Belloso Chacín (2012-2017). 
             Actualmente en Santiago, Chile.
@@ -52,7 +52,7 @@ const About = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           {highlights.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -60,13 +60,13 @@ const About = () => {
                 key={index}
                 className="group"
               >
-                <div className="mb-6">
-                  <Icon className="h-8 w-8 text-foreground" strokeWidth={1.5} />
+                <div className="mb-4 md:mb-6">
+                  <Icon className="h-7 w-7 md:h-8 md:w-8 text-foreground" strokeWidth={1.5} />
                 </div>
-                <h4 className="text-xl font-display font-bold mb-4 text-foreground">
+                <h4 className="text-lg md:text-xl font-display font-bold mb-3 md:mb-4 text-foreground">
                   {item.title}
                 </h4>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
               </div>
