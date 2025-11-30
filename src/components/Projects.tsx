@@ -79,7 +79,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="h-full py-12 md:py-20 px-4 md:px-6 lg:px-12 overflow-y-auto relative">
+    <section className="min-h-full py-12 md:py-20 px-4 md:px-6 lg:px-12 relative">
       <BackgroundParticles />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-12 md:mb-20 animate-fade-in-up">
@@ -94,12 +94,12 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
               className="group border border-border hover:border-foreground transition-all duration-300"
             >
               <div className="relative overflow-hidden aspect-[4/3]">
-                <img 
+                <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
@@ -116,7 +116,7 @@ const Projects = () => {
 
                 <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                   {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                    <span 
+                    <span
                       key={tagIndex}
                       className="text-xs text-muted-foreground tracking-wider"
                     >
@@ -127,8 +127,8 @@ const Projects = () => {
 
                 <div className="flex gap-2 md:gap-3">
                   {project.github && (
-                    <Button 
-                      size="sm" 
+                    <Button
+                      size="sm"
                       variant="outline"
                       className="border-foreground hover:bg-foreground hover:text-background rounded-none text-xs md:text-sm"
                       onClick={() => window.open(project.github, '_blank')}
@@ -138,7 +138,7 @@ const Projects = () => {
                     </Button>
                   )}
                   {project.demo && (
-                    <Button 
+                    <Button
                       size="sm"
                       className="bg-foreground text-background hover:bg-foreground/90 rounded-none text-xs md:text-sm"
                       onClick={() => window.open(project.demo, '_blank')}

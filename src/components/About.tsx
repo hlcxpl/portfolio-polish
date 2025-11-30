@@ -21,7 +21,7 @@ const About = () => {
   ];
 
   return (
-    <section className="h-full py-12 md:py-20 px-4 md:px-6 lg:px-12 overflow-y-auto relative">
+    <section className="min-h-full py-12 md:py-20 px-4 md:px-6 lg:px-12 relative">
       <BackgroundParticles />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-12 md:mb-20 animate-fade-in-up">
@@ -36,18 +36,18 @@ const About = () => {
 
         <div className="space-y-5 md:space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl mb-12 md:mb-20">
           <p>
-            Ingeniero en Computación egresado de la Universidad Dr. Rafael Belloso Chacín (2012-2017). 
+            Ingeniero en Computación egresado de la Universidad Dr. Rafael Belloso Chacín (2012-2017).
             Actualmente en Santiago, Chile.
           </p>
           <p>
-            Desarrollador Full Stack con experiencia en la optimización de procesos en la industria minera, 
-            incorporando tecnologías innovadoras para mejorar la eficiencia operativa. Especialista en 
-            soluciones bancarias digitales, con habilidad para implementar sistemas seguros y escalables 
+            Desarrollador Full Stack con experiencia en la optimización de procesos en la industria minera,
+            incorporando tecnologías innovadoras para mejorar la eficiencia operativa. Especialista en
+            soluciones bancarias digitales, con habilidad para implementar sistemas seguros y escalables
             que mejoran la satisfacción del usuario y la gestión de datos.
           </p>
           <p>
-            Con más de <span className="font-semibold text-foreground">7 años de experiencia profesional</span>, he trabajado en proyectos de alto impacto 
-            utilizando tecnologías como React, Node.js, Java, Python, Apache Kafka, y plataformas cloud 
+            Con más de <span className="font-semibold text-foreground">7 años de experiencia profesional</span>, he trabajado en proyectos de alto impacto
+            utilizando tecnologías como React, Node.js, Java, Python, Apache Kafka, y plataformas cloud
             como Azure. Mi enfoque está en crear soluciones robustas, escalables y orientadas al usuario.
           </p>
         </div>
@@ -56,7 +56,7 @@ const About = () => {
           {highlights.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="group"
               >

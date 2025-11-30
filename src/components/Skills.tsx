@@ -31,7 +31,7 @@ const Skills = () => {
   ];
 
   return (
-    <section className="h-full py-12 md:py-20 px-4 md:px-6 lg:px-12 bg-secondary/30 dark:bg-secondary/10 overflow-y-auto relative">
+    <section className="min-h-full py-12 md:py-20 px-4 md:px-6 lg:px-12 bg-secondary/30 dark:bg-secondary/10 relative">
       <BackgroundParticles />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-12 md:mb-20 animate-fade-in-up">
@@ -48,7 +48,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="group"
               >
