@@ -1,4 +1,4 @@
-import { Code2, Database, Cloud, Wrench } from "lucide-react";
+import { Code2, Server, Database, Cloud, Terminal, Bot } from "lucide-react";
 import BackgroundParticles from "./BackgroundParticles";
 
 const Skills = () => {
@@ -6,27 +6,27 @@ const Skills = () => {
     {
       icon: Code2,
       title: "Frontend",
-      skills: ["React", "Vue.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Dash (Plotly)", "WordPress", "Elementor"]
+      skills: ["React", "Vue.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Sass", "Tailwind CSS", "shadcn/ui", "Material UI", "Magic UI", "Dash (Plotly)", "WordPress", "Elementor"]
     },
     {
-      icon: Database,
+      icon: Server,
       title: "Backend",
-      skills: ["Node.js", "Python", "Java", "Spring Boot", "Django", "Flask", "Express.js", "Laravel"]
+      skills: ["Node.js", "Nest.js", ".NET", "Python", "Java", "Spring Boot", "Django", "Flask", "Express.js"]
     },
     {
       icon: Database,
       title: "Bases de Datos & Cloud",
-      skills: ["PostgreSQL", "MySQL", "SQL Server", "Prisma", "Azure", "Azure Data Lake", "Azure Functions", "Elasticsearch"]
+      skills: ["AWS", "DynamoDB", "Lambda", "SAM", "MongoDB", "PostgreSQL", "MySQL", "SQL Server", "Prisma", "Azure", "Azure Data Lake", "Azure Functions"]
     },
     {
-      icon: Cloud,
-      title: "DevOps & Herramientas",
-      skills: ["Docker", "Kubernetes", "ArgoCD", "GitHub Actions", "PM2", "Git", "Apache Kafka", "Kibana", "Logstash", "CI/CD", "GitOps"]
+      icon: Terminal,
+      title: "DevOps & Observabilidad",
+      skills: ["Docker", "Kubernetes", "Jenkins", "ArgoCD", "GitHub Actions", "ELK Stack", "Prometheus", "Grafana", "PM2", "Git"]
     },
     {
-      icon: Wrench,
-      title: "IA & Data Science",
-      skills: ["OpenAI API", "IBM Watson", "Rasa NLU", "Pandas", "Data Analysis", "Machine Learning", "REST APIs", "IoT", "Telemetría", "Agile (Scrum)"]
+      icon: Bot,
+      title: "Automatización & Herramientas",
+      skills: ["MCP", "n8n", "Make", "Lovable", "VS Code", "Antigravity", "OpenAI API", "IBM Watson", "Rasa NLU"]
     }
   ];
 
