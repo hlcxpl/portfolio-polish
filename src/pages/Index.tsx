@@ -10,6 +10,7 @@ import Contact from "@/components/Contact";
 const Index = () => {
   const [currentSection, setCurrentSection] = useState("hero");
   const [isScrolling, setIsScrolling] = useState(false);
+  const [canNavigate, setCanNavigate] = useState(true); // Nuevo estado
   const touchStartRef = useRef<number>(0);
   const touchEndRef = useRef<number>(0);
 
@@ -25,20 +26,22 @@ const Index = () => {
 
   // Función para cambiar de sección
   const changeSection = useCallback((direction: 'next' | 'prev') => {
-    if (isScrolling) return;
+    if (isScrolling || !canNavigate) return;
     
     const currentIndex = sectionOrder.indexOf(currentSection as (typeof sectionOrder)[number]);
     
     if (direction === 'next' && currentIndex < sectionOrder.length - 1) {
       setIsScrolling(true);
+      setCanNavigate(false); // Bloquear navegación
       setCurrentSection(sectionOrder[currentIndex + 1]);
       setTimeout(() => setIsScrolling(false), 700);
     } else if (direction === 'prev' && currentIndex > 0) {
       setIsScrolling(true);
+      setCanNavigate(false); // Bloquear navegación
       setCurrentSection(sectionOrder[currentIndex - 1]);
       setTimeout(() => setIsScrolling(false), 700);
     }
-  }, [currentSection, isScrolling]);
+  }, [currentSection, isScrolling, canNavigate]);
 
   const handleSectionWheel = (sectionKey: string) => (e: React.WheelEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
@@ -47,12 +50,17 @@ const Index = () => {
     const atTop = scrollTop === 0;
     const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
     
+    // Habilitar navegación si llegamos a un límite
+    if (atTop || atBottom) {
+      setCanNavigate(true);
+    }
+    
     // Si no estamos en los límites, dejar que haga scroll normal
     if (!atTop && !atBottom) {
       return; // Permitir scroll normal dentro de la sección
     }
 
-    if (isScrolling) {
+    if (isScrolling || !canNavigate) {
       e.preventDefault();
       return;
     }
@@ -87,8 +95,15 @@ const Index = () => {
     const atTop = scrollTop === 0;
     const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
     
+    // Habilitar navegación si llegamos a un límite
+    if (atTop || atBottom) {
+      setCanNavigate(true);
+    }
+    
     // Si no estamos en los límites, no cambiar de sección
     if (!atTop && !atBottom) return;
+    
+    if (!canNavigate) return;
 
     const swipeDistance = touchStartRef.current - touchEndRef.current;
     const minSwipeDistance = 50;
