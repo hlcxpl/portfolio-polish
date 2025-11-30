@@ -22,13 +22,10 @@ const Hero = ({ onNavigate }: HeroProps) => {
           />
         </div>
 
-        {/* Copyright */}
-        <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-black/40 text-xs md:text-sm">
-          Copyright © {new Date().getFullYear()}
-        </div>
+
 
         {/* Social Icons */}
-        <div className="absolute top-4 right-4 md:bottom-8 md:top-auto md:right-8 flex flex-col md:flex-row gap-3 md:gap-4">
+        <div className="absolute top-1/2 -translate-y-1/2 right-4 md:bottom-8 md:top-auto md:translate-y-0 md:right-8 flex flex-col md:flex-row gap-3 md:gap-4">
           <a
             href="https://github.com/hlcxpl"
             target="_blank"
