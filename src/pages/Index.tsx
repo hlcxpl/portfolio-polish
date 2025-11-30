@@ -27,9 +27,9 @@ const Index = () => {
   // Función para cambiar de sección
   const changeSection = useCallback((direction: 'next' | 'prev') => {
     if (isScrolling || !canNavigate) return;
-    
+
     const currentIndex = sectionOrder.indexOf(currentSection as (typeof sectionOrder)[number]);
-    
+
     if (direction === 'next' && currentIndex < sectionOrder.length - 1) {
       setIsScrolling(true);
       setCanNavigate(false); // Bloquear navegación
@@ -43,6 +43,9 @@ const Index = () => {
     }
   }, [currentSection, isScrolling, canNavigate]);
 
+  const overscrollAccumulator = useRef<number>(0);
+  const OVERSCROLL_THRESHOLD = 50; // Umbral de resistencia
+
   const handleSectionWheel = (sectionKey: string) => (e: React.WheelEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
     const { scrollTop, scrollHeight, clientHeight } = container;
@@ -50,15 +53,16 @@ const Index = () => {
     // Detección más estricta de límites (1 pixel de tolerancia)
     const atTop = scrollTop <= 1;
     const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) <= 1;
-    
+
     // Habilitar navegación SOLO si estamos exactamente en un límite
     if (atTop || atBottom) {
       setCanNavigate(true);
     } else {
-      // Si nos alejamos del límite, bloquear navegación
+      // Si nos alejamos del límite, bloquear navegación y resetear acumulador
       setCanNavigate(false);
+      overscrollAccumulator.current = 0;
     }
-    
+
     // Si no estamos en los límites, dejar que haga scroll normal
     if (!atTop && !atBottom) {
       return; // Permitir scroll normal dentro de la sección
@@ -70,16 +74,30 @@ const Index = () => {
     }
 
     const deltaY = e.deltaY;
-    
+
     // Solo cambiar de sección si estamos en el límite correcto Y scrolleando en esa dirección
+    // Y hemos superado el umbral de resistencia
     if (deltaY > 0 && atBottom) {
-      // Estamos abajo y queremos seguir bajando -> siguiente sección
-      e.preventDefault();
-      changeSection('next');
+      // Estamos abajo y queremos seguir bajando
+      overscrollAccumulator.current += deltaY;
+
+      if (overscrollAccumulator.current > OVERSCROLL_THRESHOLD) {
+        e.preventDefault();
+        changeSection('next');
+        overscrollAccumulator.current = 0;
+      }
     } else if (deltaY < 0 && atTop) {
-      // Estamos arriba y queremos seguir subiendo -> sección anterior
-      e.preventDefault();
-      changeSection('prev');
+      // Estamos arriba y queremos seguir subiendo
+      overscrollAccumulator.current += deltaY; // deltaY es negativo aquí
+
+      if (overscrollAccumulator.current < -OVERSCROLL_THRESHOLD) {
+        e.preventDefault();
+        changeSection('prev');
+        overscrollAccumulator.current = 0;
+      }
+    } else {
+      // Si cambiamos de dirección o no estamos forzando el límite, resetear
+      overscrollAccumulator.current = 0;
     }
   };
 
@@ -99,17 +117,17 @@ const Index = () => {
     // Detección más estricta de límites (1 pixel de tolerancia)
     const atTop = scrollTop <= 1;
     const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) <= 1;
-    
+
     // Habilitar navegación SOLO si estamos exactamente en un límite
     if (atTop || atBottom) {
       setCanNavigate(true);
     } else {
       setCanNavigate(false);
     }
-    
+
     // Si no estamos en los límites, no cambiar de sección
     if (!atTop && !atBottom) return;
-    
+
     if (!canNavigate) return;
 
     const swipeDistance = touchStartRef.current - touchEndRef.current;
@@ -145,18 +163,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation currentSection={currentSection} onSectionChange={setCurrentSection} />
-      
+
       {/* Section indicators - más grandes en móvil */}
       <div className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 space-y-4 md:space-y-3">
         {sectionOrder.map((section) => (
           <button
             key={section}
             onClick={() => setCurrentSection(section)}
-            className={`block rounded-full transition-all duration-300 ${
-              currentSection === section
+            className={`block rounded-full transition-all duration-300 ${currentSection === section
                 ? "bg-foreground w-10 md:w-8 h-3 md:h-2"
                 : "bg-foreground/30 hover:bg-foreground/50 w-3 md:w-2 h-3 md:h-2"
-            }`}
+              }`}
             aria-label={section}
           />
         ))}
@@ -166,20 +183,19 @@ const Index = () => {
         {Object.entries(sections).map(([key, Component]) => {
           const currentIndex = sectionOrder.indexOf(currentSection as (typeof sectionOrder)[number]);
           const sectionIndex = sectionOrder.indexOf(key as (typeof sectionOrder)[number]);
-          
+
           return (
             <div
               key={key}
-              className={`absolute inset-0 transition-all duration-700 ${
-                currentSection === key
+              className={`absolute inset-0 transition-all duration-700 ${currentSection === key
                   ? "opacity-100 translate-x-0"
                   : sectionIndex < currentIndex
-                  ? "opacity-0 -translate-x-full"
-                  : "opacity-0 translate-x-full"
-              }`}
+                    ? "opacity-0 -translate-x-full"
+                    : "opacity-0 translate-x-full"
+                }`}
             >
-              <div 
-                className="h-screen overflow-y-auto" 
+              <div
+                className="h-screen overflow-y-auto"
                 onWheel={handleSectionWheel(key)}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
