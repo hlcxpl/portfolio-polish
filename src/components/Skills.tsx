@@ -71,11 +71,6 @@ const Skills = () => {
           })}
         </div>
 
-        <div className="mt-12 md:mt-20 pt-8 md:pt-12 border-t border-border">
-          <p className="text-base md:text-lg text-muted-foreground">
-            <span className="font-display font-bold text-foreground text-2xl md:text-3xl">6+</span> años de experiencia profesional desarrollando soluciones fullstack, DevOps y data science en industrias minera, bancaria y tecnológica.
-          </p>
-        </div>
       </div>
     </section>
   );
