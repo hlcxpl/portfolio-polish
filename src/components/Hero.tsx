@@ -25,12 +25,12 @@ const Hero = ({ onNavigate }: HeroProps) => {
 
 
         {/* Social Icons */}
-        <div className="absolute bottom-4 left-4 md:bottom-8 md:top-auto md:right-8 flex flex-row gap-3 md:gap-4">
+        <div className="absolute bottom-0 left-4 md:bottom-8 md:top-auto md:right-8 flex flex-row gap-3 md:gap-4">
           <a
             href="https://github.com/hlcxpl"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-black/60 hover:text-black transition-colors p-2 md:p-0"
+            className="text-black/60 hover:text-black transition-colors p-0 md:p-0"
           >
             <Github className="h-5 w-5 md:h-5 md:w-5" />
           </a>
@@ -38,13 +38,13 @@ const Hero = ({ onNavigate }: HeroProps) => {
             href="https://www.linkedin.com/in/luisomarsanchezdiaz/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-black/60 hover:text-black transition-colors p-2 md:p-0"
+            className="text-black/60 hover:text-black transition-colors p-0 md:p-0"
           >
             <Linkedin className="h-5 w-5 md:h-5 md:w-5" />
           </a>
           <a
             href="mailto:hlcxpl@gmail.com"
-            className="text-black/60 hover:text-black transition-colors p-2 md:p-0"
+            className="text-black/60 hover:text-black transition-colors p-0 md:p-0"
           >
             <Mail className="h-5 w-5 md:h-5 md:w-5" />
           </a>
