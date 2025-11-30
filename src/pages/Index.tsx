@@ -44,24 +44,25 @@ const Index = () => {
     const container = e.currentTarget;
     const { scrollTop, scrollHeight, clientHeight } = container;
 
-    const atTop = scrollTop <= 0;
-    const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-
-    // Si todavía hay contenido para hacer scroll dentro de la sección, no cambiamos de sección
-    if (!atTop && !atBottom) return;
-
-    if (isScrolling) return;
+    const atTop = scrollTop === 0;
+    const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
 
     const deltaY = e.deltaY;
-    if (Math.abs(deltaY) < 20) return;
+    if (Math.abs(deltaY) < 10) return;
 
-    // Navegar sólo cuando estamos en el límite de la sección
-    if (deltaY > 0 && atBottom) {
-      e.preventDefault();
-      changeSection('next');
-    } else if (deltaY < 0 && atTop) {
-      e.preventDefault();
-      changeSection('prev');
+    // Solo permitir cambio de sección si estamos en los límites Y estamos scrolleando en esa dirección
+    if (deltaY > 0) {
+      // Scrolling hacia abajo
+      if (atBottom && !isScrolling) {
+        e.preventDefault();
+        changeSection('next');
+      }
+    } else {
+      // Scrolling hacia arriba
+      if (atTop && !isScrolling) {
+        e.preventDefault();
+        changeSection('prev');
+      }
     }
   };
 
@@ -78,22 +79,23 @@ const Index = () => {
     const container = e.currentTarget;
     const { scrollTop, scrollHeight, clientHeight } = container;
 
-    const atTop = scrollTop <= 0;
-    const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-
-    // Si todavía hay contenido para hacer scroll, no cambiamos de sección
-    if (!atTop && !atBottom) return;
+    const atTop = scrollTop === 0;
+    const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
 
     const swipeDistance = touchStartRef.current - touchEndRef.current;
     const minSwipeDistance = 50;
 
     if (Math.abs(swipeDistance) > minSwipeDistance) {
-      if (swipeDistance > 0 && atBottom) {
-        // Swipe up - next section
-        changeSection('next');
-      } else if (swipeDistance < 0 && atTop) {
-        // Swipe down - prev section
-        changeSection('prev');
+      if (swipeDistance > 0) {
+        // Swipe up - next section (solo si estamos en el bottom)
+        if (atBottom) {
+          changeSection('next');
+        }
+      } else {
+        // Swipe down - prev section (solo si estamos en el top)
+        if (atTop) {
+          changeSection('prev');
+        }
       }
     }
   };
