@@ -46,23 +46,28 @@ const Index = () => {
 
     const atTop = scrollTop === 0;
     const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
+    
+    // Si no estamos en los límites, dejar que haga scroll normal
+    if (!atTop && !atBottom) {
+      return; // Permitir scroll normal dentro de la sección
+    }
+
+    if (isScrolling) {
+      e.preventDefault();
+      return;
+    }
 
     const deltaY = e.deltaY;
-    if (Math.abs(deltaY) < 10) return;
-
-    // Solo permitir cambio de sección si estamos en los límites Y estamos scrolleando en esa dirección
-    if (deltaY > 0) {
-      // Scrolling hacia abajo
-      if (atBottom && !isScrolling) {
-        e.preventDefault();
-        changeSection('next');
-      }
-    } else {
-      // Scrolling hacia arriba
-      if (atTop && !isScrolling) {
-        e.preventDefault();
-        changeSection('prev');
-      }
+    
+    // Solo cambiar de sección si estamos en el límite correcto Y scrolleando en esa dirección
+    if (deltaY > 0 && atBottom) {
+      // Estamos abajo y queremos seguir bajando -> siguiente sección
+      e.preventDefault();
+      changeSection('next');
+    } else if (deltaY < 0 && atTop) {
+      // Estamos arriba y queremos seguir subiendo -> sección anterior
+      e.preventDefault();
+      changeSection('prev');
     }
   };
 
@@ -81,21 +86,20 @@ const Index = () => {
 
     const atTop = scrollTop === 0;
     const atBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
+    
+    // Si no estamos en los límites, no cambiar de sección
+    if (!atTop && !atBottom) return;
 
     const swipeDistance = touchStartRef.current - touchEndRef.current;
     const minSwipeDistance = 50;
 
     if (Math.abs(swipeDistance) > minSwipeDistance) {
-      if (swipeDistance > 0) {
-        // Swipe up - next section (solo si estamos en el bottom)
-        if (atBottom) {
-          changeSection('next');
-        }
-      } else {
-        // Swipe down - prev section (solo si estamos en el top)
-        if (atTop) {
-          changeSection('prev');
-        }
+      if (swipeDistance > 0 && atBottom) {
+        // Swipe up (hacia arriba con el dedo) - next section
+        changeSection('next');
+      } else if (swipeDistance < 0 && atTop) {
+        // Swipe down (hacia abajo con el dedo) - prev section
+        changeSection('prev');
       }
     }
   };
