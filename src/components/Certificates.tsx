@@ -324,7 +324,7 @@ const Certificates = () => {
                     >
                         <button
                             onClick={handleClose}
-                            className="absolute top-16 md:top-4 right-4 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors pointer-events-auto"
+                            className="absolute top-4 left-4 z-10 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors pointer-events-auto"
                         >
                             <X className="h-6 w-6" />
                         </button>
