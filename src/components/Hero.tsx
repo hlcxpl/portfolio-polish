@@ -87,6 +87,32 @@ const Hero = ({ onNavigate }: HeroProps) => {
       {/* Right side - Content */}
       <div className="w-full lg:w-1/2 bg-background flex items-center justify-center p-8 md:p-12 lg:p-20 min-h-[50vh] lg:min-h-full">
         <div className="max-w-xl">
+          {/* Social Icons - Above name on mobile, below button on desktop */}
+          <div className="flex flex-row gap-4 mb-6 justify-center md:hidden">
+            <a
+              href="https://github.com/hlcxpl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Github className="h-6 w-6" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/luisomarsanchezdiaz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Linkedin className="h-6 w-6" />
+            </a>
+            <a
+              href="mailto:hlcxpl@gmail.com"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Mail className="h-6 w-6" />
+            </a>
+          </div>
+
           <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-6 md:mb-8 leading-[0.9] tracking-tight">
             LUIS OMAR
             <br />
@@ -109,8 +135,8 @@ const Hero = ({ onNavigate }: HeroProps) => {
             Contactar
           </Button>
 
-          {/* Social Icons */}
-          <div className="flex flex-row gap-4 mt-6 justify-center md:justify-start">
+          {/* Social Icons - Below button on desktop only */}
+          <div className="hidden md:flex flex-row gap-4 mt-6 justify-start">
             <a
               href="https://github.com/hlcxpl"
               target="_blank"
