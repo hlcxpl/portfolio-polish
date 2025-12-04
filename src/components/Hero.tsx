@@ -3,6 +3,8 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import SubtleParticles from "./SubtleParticles";
 import ProfileCard from "./ProfileCard/ProfileCard";
 import profileImage from "@/assets/Luis_2.png";
+import grainTexture from "@/assets/grain.png";
+import patternIcon from "@/assets/pattern-icon.png";
 
 interface HeroProps {
   onNavigate: (section: string) => void;
@@ -16,17 +18,64 @@ const Hero = ({ onNavigate }: HeroProps) => {
       <div className="w-full lg:w-1/2 bg-white dark:bg-[#f5f5f5] relative flex items-center justify-center min-h-[50vh] lg:min-h-full">
         <SubtleParticles />
         <div className="relative z-10 p-8 md:p-12">
-          {/* ReactBits Profile Card */}
+          {/* 
+            ========== PROFILE CARD - CONFIGURACIÓN COMPLETA ==========
+            
+            IMÁGENES Y ASSETS:
+            - avatarUrl: Imagen principal del perfil
+            - miniAvatarUrl: Avatar pequeño en barra inferior (opcional)
+            - grainUrl: Textura de grano para profundidad (✅ ACTIVADO)
+            - iconUrl: Patrón para efecto holográfico (✅ ACTIVADO)
+            - innerGradient: Gradiente interno personalizado
+            
+            EFECTOS VISUALES:
+            - behindGlowEnabled: Resplandor detrás de la tarjeta (✅ ACTIVADO)
+            - behindGlowColor: Color del resplandor
+            - behindGlowSize: Tamaño del resplandor (25%, 50%, 75%)
+            
+            EFECTOS DE INCLINACIÓN (TILT):
+            - enableTilt: Efecto tilt en desktop (✅ ACTIVADO)
+            - enableMobileTilt: Efecto tilt con giroscopio móvil (✅ ACTIVADO)
+            - mobileTiltSensitivity: Sensibilidad del tilt móvil (1-10)
+            
+            INFORMACIÓN DE USUARIO:
+            - name: Nombre principal (arriba)
+            - title: Título profesional (arriba)
+            - handle: Handle de usuario (@hlcxpl en barra inferior)
+            - status: Estado (en barra inferior)
+            - contactText: Texto del botón de contacto
+            - showUserInfo: Muestra barra inferior con info (✅ ACTIVADO)
+            
+            EVENTOS:
+            - onContactClick: Acción al hacer click en "Contactar"
+            
+            PARA DESACTIVAR EFECTOS:
+            - Grain texture: grainUrl={undefined}
+            - Pattern icon: iconUrl={undefined}
+            - Glow: behindGlowEnabled={false}
+            - Tilt desktop: enableTilt={false}
+            - Tilt móvil: enableMobileTilt={false}
+            - Barra inferior: showUserInfo={false}
+          */}
           <ProfileCard
             avatarUrl={profileImage}
+            miniAvatarUrl={profileImage}
+            grainUrl={grainTexture}
+
+            innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+            behindGlowEnabled={true}
+            behindGlowColor="rgba(125, 190, 255, 0.67)"
+            behindGlowSize="50%"
+            enableTilt={true}
+            enableMobileTilt={true}
+            mobileTiltSensitivity={5}
             name="LUIS SÁNCHEZ"
-            title=""
+            title="Software Engineer"
             handle="hlcxpl"
             status="Disponible"
             contactText="Contactar"
-            showUserInfo={false}
-            enableTilt={false}
-            enableMobileTilt={false}
+            showUserInfo={true}
+            onContactClick={() => onNavigate("contact")}
           />
         </div>
 
@@ -90,4 +139,3 @@ const Hero = ({ onNavigate }: HeroProps) => {
 };
 
 export default Hero;
-

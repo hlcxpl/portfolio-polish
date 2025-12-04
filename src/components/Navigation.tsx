@@ -34,7 +34,7 @@ const Navigation = ({ currentSection, onSectionChange, isScrolled }: NavigationP
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${isScrolled
-      ? "bg-background/80 backdrop-blur-md border-b border-border/10 shadow-sm supports-[backdrop-filter]:bg-background/60 py-2"
+      ? "md:bg-background/80 md:backdrop-blur-md md:border-b md:border-border/10 md:shadow-sm md:supports-[backdrop-filter]:bg-background/60 py-2"
       : "bg-transparent py-4"
       }`}>
       <div className="container mx-auto px-6 lg:px-12">

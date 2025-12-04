@@ -112,7 +112,7 @@
   mask-size: 150%;
   mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
   transition: filter 0.8s ease;
-  filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+  filter: brightness(0.5) contrast(1.1) saturate(0.3) opacity(0.4);
   animation: holo-bg 18s linear infinite;
   animation-play-state: running;
   mix-blend-mode: color-dodge;
@@ -178,7 +178,7 @@
 
 .pc-card:hover .pc-shine,
 .pc-card.active .pc-shine {
-  filter: brightness(0.85) contrast(1.5) saturate(0.5);
+  filter: brightness(0.7) contrast(1.3) saturate(0.45);
   animation-play-state: paused;
 }
 
@@ -186,7 +186,7 @@
 .pc-card.active .pc-shine::before,
 .pc-card:hover .pc-shine::after,
 .pc-card.active .pc-shine::after {
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .pc-shine::before {
@@ -205,14 +205,14 @@
   background-size:
     250% 250%,
     100% 100%,
-    220px 220px;
+    200px 200px;
   background-position:
     var(--pointer-x) var(--pointer-y),
     center,
     calc(var(--pointer-x) * 0.01) calc(var(--pointer-y) * 0.01);
-  background-blend-mode: color-dodge;
-  filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2))
-    saturate(calc(0.5 + var(--pointer-from-center)));
+  background-blend-mode: screen, normal, overlay;
+  filter: brightness(calc(2.4 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2.2))
+    saturate(calc(0.5 + var(--pointer-from-center))) invert(0.2);
   mix-blend-mode: luminosity;
 }
 
