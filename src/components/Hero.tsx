@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import SubtleParticles from "./SubtleParticles";
 import ProfileCard from "./ProfileCard/ProfileCard";
+import Beams from "./Beams";
 import profileImage from "@/assets/Luis_2.png";
 import grainTexture from "@/assets/grain.png";
 import diamondIcon from "@/assets/diamond-icon.png";
@@ -84,8 +85,13 @@ const Hero = ({ onNavigate }: HeroProps) => {
       </div>
 
       {/* Right side - Content */}
-      <div className="w-full lg:w-1/2 bg-background flex items-center justify-center p-8 md:p-12 lg:p-20 min-h-[50vh] lg:min-h-full">
-        <div className="max-w-xl">
+      <div className="w-full lg:w-1/2 bg-background flex items-center justify-center p-8 md:p-12 lg:p-20 min-h-[50vh] lg:min-h-full relative overflow-hidden">
+        {/* Beams background - only visible in dark mode */}
+        <div className="hidden dark:block absolute inset-0">
+          <Beams />
+        </div>
+
+        <div className="max-w-xl relative z-10">
           {/* Social Icons - Above name on mobile, below button on desktop */}
           <div className="flex flex-row gap-6 mb-6 justify-center md:hidden">
             <a
