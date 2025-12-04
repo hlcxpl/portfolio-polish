@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import SubtleParticles from "./SubtleParticles";
+import ProfileCard from "./ProfileCard/ProfileCard";
 import profileImage from "@/assets/Luis_2.png";
 
 interface HeroProps {
@@ -15,26 +16,18 @@ const Hero = ({ onNavigate }: HeroProps) => {
       <div className="w-full lg:w-1/2 bg-white dark:bg-[#f5f5f5] relative flex items-center justify-center min-h-[50vh] lg:min-h-full">
         <SubtleParticles />
         <div className="relative z-10 p-8 md:p-12">
-          {/* Animated gradient border container */}
-          <div className="relative group">
-            {/* Rotating gradient border - Elegant gray tones */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-gray-700 via-gray-400 to-gray-200 rounded-full opacity-75 group-hover:opacity-100 blur-sm group-hover:blur-md transition-all duration-1000 animate-[rotate-gradient_8s_linear_infinite]"></div>
-
-            {/* Pulse effect ring - Elegant gray tones */}
-            <div className="absolute -inset-2 bg-gradient-to-r from-gray-600 via-gray-400 to-gray-300 rounded-full opacity-0 group-hover:animate-[pulse-glow_2s_ease-in-out_infinite]"></div>
-
-            {/* Image container */}
-            <div className="relative bg-white dark:bg-[#f5f5f5] rounded-full p-2">
-              <img
-                src={profileImage}
-                alt="Luis Omar Sánchez"
-                className="w-full max-w-xs md:max-w-md mx-auto rounded-full 
-                          group-hover:scale-105 transition-all duration-700 ease-out
-                          shadow-2xl group-hover:shadow-[0_0_40px_rgba(100,100,100,0.5)]
-                          dark:group-hover:shadow-[0_0_40px_rgba(200,200,200,0.6)]"
-              />
-            </div>
-          </div>
+          {/* ReactBits Profile Card */}
+          <ProfileCard
+            avatarUrl={profileImage}
+            name="LUIS SÁNCHEZ"
+            title=""
+            handle="hlcxpl"
+            status="Disponible"
+            contactText="Contactar"
+            showUserInfo={false}
+            enableTilt={false}
+            enableMobileTilt={false}
+          />
         </div>
 
 
@@ -97,3 +90,4 @@ const Hero = ({ onNavigate }: HeroProps) => {
 };
 
 export default Hero;
+

@@ -85,9 +85,9 @@ const Navigation = ({ currentSection, onSectionChange, isScrolled }: NavigationP
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Removed backdrop-blur-sm */}
       {isOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-sm border-b border-border">
+        <div className="md:hidden bg-background/95 border-b border-border">
           <div className="px-6 pt-2 pb-6 space-y-1">
             {navItems.map((item) => (
               <button
